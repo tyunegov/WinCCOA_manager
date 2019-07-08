@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCCOADiagnostic", "WCCOADiagnostic.csproj", "{C2A4DD5C-B2AF-4031-B994-42BAD9AE7AAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "..\ConsoleApp2\ConsoleApp2.csproj", "{2A7A078A-0D81-405C-BE96-7436D38DC8A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2A4DD5C-B2AF-4031-B994-42BAD9AE7AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2A4DD5C-B2AF-4031-B994-42BAD9AE7AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2A4DD5C-B2AF-4031-B994-42BAD9AE7AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2A4DD5C-B2AF-4031-B994-42BAD9AE7AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A7A078A-0D81-405C-BE96-7436D38DC8A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A7A078A-0D81-405C-BE96-7436D38DC8A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A7A078A-0D81-405C-BE96-7436D38DC8A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A7A078A-0D81-405C-BE96-7436D38DC8A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52D867EB-A012-4CC0-B295-AC640095667B}
+	EndGlobalSection
+EndGlobal

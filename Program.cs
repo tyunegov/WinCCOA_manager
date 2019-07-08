@@ -15,40 +15,67 @@ namespace ConsoleApp2
 {
     class Program
     {
+        static OaManager myManager = null;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Запуск менеджера");
-            Manager.EstablishConection(args);
-            Console.WriteLine("Менеджер поключен");
+            try
+            {
+                EstablishConection(args);
+                Console.WriteLine("Менеджер поключен");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Ошибка подключения менеджера. Проверьте наличие файла ETM.WCCOA.CSharpInterface.dll в папке bin");
+                Console.WriteLine(e);
+            }
+            try
+            {
+                DataPoint pc = new ParamPC(myManager);
+                pc.Connected();
+                Console.WriteLine("Информация о компьютере записана");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            
+            try
+            {
+                DataPoint storage = new ParamStorage(myManager);
+                storage.Connected();
+                Console.WriteLine("Информация об устройствах памяти записана");
+            }
+           catch (Exception e)
+           {
+               Console.WriteLine(e);
+           }
+           try
+           {
+                DataPoint ram = new ParamRAM(myManager);
+               ram.Connected();
+               Console.WriteLine("Информация об ОЗУ записана");
 
+           }
+           catch (Exception e)
+           {
+               Console.WriteLine(e);
+           }
+        //   myManager.StopAsync();
+       }
 
-            Manager pc = new ParamPC();
-            pc.Connected();
-            Console.WriteLine("Информация о компьютере записана");
+       /// <summary>
+       /// Подключение менеджера к проекту
+       /// </summary>
+       /// <param name="args"></param>
+       public static async void EstablishConection(string[] args)
+       {
+           myManager = OaSdk.CreateManager();
+           myManager.Init(ManagerSettings.DefaultApiSettings, args);
+           await myManager.StartAsync();
+       }
+   }
 
-            Manager storage = new ParamStorage();
-            storage.Connected();
-            Console.WriteLine("Информация об устройствах памяти записана");
-
-            Manager ram = new ParamRAM();
-            ram.Connected();
-        }
-
-    /*    static void test()
-        {
-            LocalizedString text = new LocalizedString();
-           // text.SetText(new CultureInfo(25), "rus");
-            text.SetText(new CultureInfo(1033), "end");
-            Console.WriteLine("_____________________________________________________________________________________" +
-                "____________________________________________________________________________________________________" +
-                "________________________________________________________________________________________________________" +
-                "____________________________________________________________________________________________________");
-           Console.WriteLine(text.GetText());
-
-            OaSimpleDataPointElement oa = new OaSimpleDataPointElement();
-            oa.SetDescription(text);
-        }*/
-    }
-    
 }
 

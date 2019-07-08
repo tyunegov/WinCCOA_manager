@@ -7,8 +7,9 @@ using ETM.WCCOA;
 
 namespace ConsoleApp2
 {
-    class SystemParametrs
+    static class SystemParametrs
     {
+        public static string driveName;
         public static Dictionary<string,dynamic> ParamPC()
         {
             Dictionary<string, dynamic> pairs = new Dictionary<string, dynamic>();
@@ -21,34 +22,24 @@ namespace ConsoleApp2
             return pairs;
         }
 
-        public static Dictionary<string, dynamic> ChangeableParamPC()
-        {
-            Dictionary<string, dynamic> pairs = new Dictionary<string, dynamic>();
-            pairs.Add("LoadPercentageCPU", PercentCPU());
-            pairs.Add("TemperatureCPU", TemperatureCPU());
-
-            return pairs;
-        }
-
         public static List<Dictionary<string, dynamic>> ParamHD()
         {
             ManagementObjectSearcher searcher =
             new ManagementObjectSearcher("root\\CIMV2",
-            @"SELECT * FROM Win32_Volume WHERE (Drivetype=3 OR DriveType=2) AND DriveLetter IS NOT NULL");
+            "SELECT * FROM Win32_Volume WHERE (Drivetype=3 OR DriveType=2) AND DriveLetter IS NOT NULL AND Caption IS NOT NULL");
 
             List<Dictionary<string, dynamic>> list = new List<Dictionary<string, dynamic>>();
 
             foreach (ManagementObject queryObj in searcher.Get())
             {
                 Dictionary<string, dynamic> pairs = new Dictionary<string, dynamic>();
-                string driveName = queryObj["Caption"].ToString().Replace(":\\","");
+                driveName = queryObj["Caption"].ToString().Replace(":\\","");
                 pairs.Add($"Capacity_{driveName}", ConvertByteInGByte(queryObj["Capacity"]));
-                pairs.Add($"Caption_{driveName}", queryObj["Caption"].ToString());
+                pairs.Add($"Caption_{driveName}", driveName);
                 pairs.Add($"FileSystem_{driveName}", queryObj["FileSystem"].ToString());
                 pairs.Add($"FreeSpace_{driveName}", ConvertByteInGByte(queryObj["FreeSpace"]));
                 list.Add(pairs);
             }
-
             return list;
         }
 

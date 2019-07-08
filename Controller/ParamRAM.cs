@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ETM.WCCOA;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2.Controller
 {
-    class ParamRAM:Manager
+    class ParamRAM:DataPoint
     {
-        public ParamRAM()
+        public ParamRAM(OaManager manager) : base(manager)
         {
 
             DptName = "RAM_Param";

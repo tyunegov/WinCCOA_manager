@@ -1,0 +1,9 @@
+C:\Users\user\source\repos\WinCC_OA manager\bin\Debug\ConsoleApp2.exe.config
+C:\Users\user\source\repos\WinCC_OA manager\bin\Debug\ConsoleApp2.exe
+C:\Users\user\source\repos\WinCC_OA manager\bin\Debug\ConsoleApp2.pdb
+C:\Users\user\source\repos\WinCC_OA manager\bin\Debug\ETM.WCCOA.CSharpInterface.dll
+C:\Users\user\source\repos\WinCC_OA manager\obj\Debug\WCCOADiagnostic.csprojAssemblyReference.cache
+C:\Users\user\source\repos\WinCC_OA manager\obj\Debug\WCCOADiagnostic.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\WinCC_OA manager\obj\Debug\WCCOADiagnostic.csproj.CopyComplete
+C:\Users\user\source\repos\WinCC_OA manager\obj\Debug\ConsoleApp2.exe
+C:\Users\user\source\repos\WinCC_OA manager\obj\Debug\ConsoleApp2.pdb

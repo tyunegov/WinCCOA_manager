@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2.Controller
 {
-    class ParamPC : Manager
+    class ParamPC : DataPoint
     {
-        public ParamPC()
+        public ParamPC(OaManager manager):base(manager)
         {
-            DptName = "PC_Param";            
+            DptName = "PC_Param";
         }
 
         protected override void WriteValuesExample()

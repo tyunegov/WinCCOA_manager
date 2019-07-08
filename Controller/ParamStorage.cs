@@ -1,25 +1,30 @@
-﻿using System;
+﻿using ETM.WCCOA;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp2.Controller
 {
-    class ParamStorage : Manager
+    class ParamStorage : DataPoint
     {
         List<string> disks=new List<string>();
 
-        public ParamStorage()
-        {
-            
+        public ParamStorage(OaManager manager) : base(manager)
+        {            
             DptName = "Storage_Param";
             DpName += "_Storage";
         }
 
         protected override string WriteValuesExampleDpName(string key)
         {
-            return DpName + "." + key.Substring(0, key.Length - 2);
+            string _key = key.Substring(0, key.Length - 2);
+            description($"{DpName}.{_key}", _key);
+
+
+            return DpName + "." + _key;
         }
 
         public override void Connected()
@@ -33,6 +38,9 @@ namespace ConsoleApp2.Controller
             }
         }
 
+        /// <summary>
+        /// Переопределяет в родительском классе переменную parametrs
+        /// </summary>
         protected override void WriteValuesExample()
         {
             List<string> _disks = new List<string>();
